@@ -4,6 +4,7 @@
 #include "Destination.h"
 #include <list>
 
+
 using std::list;
 using std::to_string;
 
@@ -17,6 +18,8 @@ public:
     bool isEmpty();
     Destination eliminateDestination();
     void printAllDestinations();
+
+    void addDestination(Destination dest);
 
 private:
     int M;

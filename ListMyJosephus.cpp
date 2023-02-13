@@ -50,3 +50,7 @@ void ListMyJosephus::printAllDestinations() {
         itr->printDestinationName();
     }
 }
+
+void ListMyJosephus::addDestination(Destination dest) {
+    destinationList.push_back(dest);
+}
