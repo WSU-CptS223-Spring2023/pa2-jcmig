@@ -80,22 +80,16 @@ void testListMyJosephus(int M, int N) {
     cpuTime = cpuTime * 1000;
 
     double elimTimesSum, elimTimeAvg;
-    for (int i = 0; i < sizeof(elimTimes) / sizeof(double); i++) {
+    for (int i = 0; i < (sizeof(elimTimes) / sizeof(double)); i++) {
         elimTimesSum += elimTimes[i];
     }
 
     elimTimeAvg = elimTimesSum / (sizeof(elimTimes) / sizeof(double));
 
-    cout << "~~List testing~~" << endl;
-    cout << "N=" << N << ",M=" << M << endl;
-    cout << "Total CPU time: " << cpuTime << " milliseconds" << endl;
-    cout << "Avg elimination time: " << elimTime << " microseconds" << endl;
-
     if (outfile.is_open()) {
         outfile << "N=" << N << ",M=" << M << endl;
         outfile << "Total CPU time: " << cpuTime << " milliseconds" << endl;
-        outfile << "Avg elimination time: " << elimTime << " microseconds" << endl;
-        outfile << endl << endl;
+        outfile << "Avg elimination time: " << elimTimeAvg << " microseconds" << endl << endl;
     }
 
 }
