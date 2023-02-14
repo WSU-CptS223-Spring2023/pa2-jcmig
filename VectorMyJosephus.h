@@ -16,6 +16,8 @@ public:
     bool isEmpty();
     Destination eliminateDestination();
     void printAllDestinations();
+    
+    void addDestination(Destination dest);
 
 private:
     int M;

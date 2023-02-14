@@ -36,5 +36,51 @@ Ans:    The larger N becomes, the more elements need to be iterated through, whi
 */
 
 int main(void) {
+    ofstream outfile("results.log");
+
+    if (outfile.is_open()) {
+        outfile << "~~List Testing~~" << endl;
+
+        testListMyJosephus(3, 4);
+        testListMyJosephus(3, 8);
+        testListMyJosephus(3, 16);
+        testListMyJosephus(3, 32);
+        testListMyJosephus(3, 64);
+        testListMyJosephus(3, 128);
+        testListMyJosephus(3, 256);
+        testListMyJosephus(3, 512);
+        testListMyJosephus(3, 1024);
+        testListMyJosephus(2, 512);
+        testListMyJosephus(4, 512);
+        testListMyJosephus(8, 512);
+        testListMyJosephus(16, 512);
+        testListMyJosephus(32, 512);
+        testListMyJosephus(64, 512);
+        testListMyJosephus(128, 512);
+        testListMyJosephus(256, 512);
+
+        outfile << "~~Vector Testing~~" << endl;
+
+        testVectorMyJosephus(3, 4);
+        testVectorMyJosephus(3, 8);
+        testVectorMyJosephus(3, 16);
+        testVectorMyJosephus(3, 32);
+        testVectorMyJosephus(3, 64);
+        testVectorMyJosephus(3, 128);
+        testVectorMyJosephus(3, 256);
+        testVectorMyJosephus(3, 512);
+        testVectorMyJosephus(3, 1024);
+        testVectorMyJosephus(2, 512);
+        testVectorMyJosephus(4, 512);
+        testVectorMyJosephus(8, 512);
+        testVectorMyJosephus(16, 512);
+        testVectorMyJosephus(32, 512);
+        testVectorMyJosephus(64, 512);
+        testVectorMyJosephus(128, 512);
+        testVectorMyJosephus(256, 512);
+    
+    }
+
+    
     return 0;
 }

@@ -30,3 +30,7 @@ void VectorMyJosephus::printAllDestinations() {
         itr->printDestinationName();
     }
 }
+
+void VectorMyJosephus::addDestination(Destination dest) {
+    destinationVector.push_back(dest);
+}

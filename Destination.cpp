@@ -5,9 +5,9 @@ Destination::Destination(int pos, string name) : position(pos), name(name) {}
 Destination::~Destination() {}
 
 void Destination::printPosition() {
-    cout << "Position: " << position << endl;
+    cout << position << ". ";
 }
 
 void Destination::printDestinationName() {
-    cout << "Destination Name: " << name << endl;
+    cout << name << ", ";
 }

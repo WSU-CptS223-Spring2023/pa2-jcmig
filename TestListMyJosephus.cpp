@@ -2,12 +2,12 @@
 
 using namespace std;
 
-void testListMyJosephus() {
-    int M = 3, N = 4;
+void testListMyJosephus(int M, int N) {
     int line;
     string csvLine;
     ListMyJosephus listJosephus = ListMyJosephus(M, N);
     ifstream infile("destinations.csv");
+    ofstream outfile("results.log");
 
     clock_t k = clock();
     clock_t cpuStart;
@@ -35,20 +35,31 @@ void testListMyJosephus() {
     cout << "Original destinations:" << endl;
     listJosephus.printAllDestinations();
 
-    clock_t j = clock();
-    clock_t elimStart;
-    do elimStart = clock();
-    while (elimStart == k);
+    double elimTimes[listJosephus.currentSize()];
+    double elimTime;
 
     while (listJosephus.currentSize() > 1) {
-        int i = 1;
+        int i = 0;
+        
+        clock_t j = clock();
+        clock_t elimStart;
+        do elimStart = clock();
+        while (elimStart == j);
+
         Destination dest = listJosephus.eliminateDestination();
         eliminatedDestinations.push_back(dest);
-        cout << "ROUND #" << i << " --- Remaining destinations:" << endl;
-        listJosephus.printAllDestinations();
-    }
 
-    clock_t elimEnd = clock();
+        clock_t elimEnd = clock();
+
+        cout << "ROUND #" << i + 1 << " --- Remaining destinations:" << endl;
+        listJosephus.printAllDestinations();
+
+        elimTime = (elimStart - elimEnd) / CLOCKS_PER_SEC;
+        elimTime = elimTime * 1000000;
+        elimTimes[i] = elimTime;
+
+        i++;
+    }
 
     cout << "~~~~~~~~~~~~~~~" << endl;
     cout << "Order of elimination:" << endl;
@@ -68,11 +79,23 @@ void testListMyJosephus() {
     double cpuTime = (cpuEnd - cpuStart) / CLOCKS_PER_SEC;
     cpuTime = cpuTime * 1000;
 
-    double elimTime = (elimStart - elimEnd) / CLOCKS_PER_SEC;
-    elimTime = elimTime * 1000000;
+    double elimTimesSum, elimTimeAvg;
+    for (int i = 0; i < sizeof(elimTimes) / sizeof(double); i++) {
+        elimTimesSum += elimTimes[i];
+    }
+
+    elimTimeAvg = elimTimesSum / (sizeof(elimTimes) / sizeof(double));
 
     cout << "~~List testing~~" << endl;
     cout << "N=" << N << ",M=" << M << endl;
     cout << "Total CPU time: " << cpuTime << " milliseconds" << endl;
     cout << "Avg elimination time: " << elimTime << " microseconds" << endl;
+
+    if (outfile.is_open()) {
+        outfile << "N=" << N << ",M=" << M << endl;
+        outfile << "Total CPU time: " << cpuTime << " milliseconds" << endl;
+        outfile << "Avg elimination time: " << elimTime << " microseconds" << endl;
+        outfile << endl << endl;
+    }
+
 }
