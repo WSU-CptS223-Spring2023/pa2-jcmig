@@ -5,10 +5,14 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
 
 using std::string;
 using std::cout;
 using std::endl;
+using std::stringstream;
+using std::getline;
 
 class Destination {
 public:
