@@ -9,3 +9,9 @@ TestListMyJosephus.o:	TestListMyJosephus.cpp ListMyJosephus.h Destination.h
 
 TestVectorMyJosephus.o:	TestVectorMyJosephus.cpp VectorMyJosephus.h Destination.h
 			g++ -c -g -Wall -std=c++11 VectorMyJosephus.cpp
+
+clean:
+			-rm *.o
+
+run:
+			@./PA2
