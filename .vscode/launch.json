@@ -7,7 +7,7 @@
         "name": "(gdb) Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "enter program name, for example ${workspaceFolder}/a.out",
+        "program": "enter program name, for example ${workspaceFolder}/${fileBasenameNoExtension}",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
